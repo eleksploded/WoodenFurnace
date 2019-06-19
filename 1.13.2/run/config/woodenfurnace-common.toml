@@ -1,0 +1,11 @@
+
+[General]
+	#Number of Crafts Before Disaster
+	crafts = 1
+	#Enables/Disables Block Damage
+	damage = false
+	#Enables/Disables Fire
+	fire = true
+	#Explosion Power
+	power = 3
+

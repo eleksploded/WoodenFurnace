@@ -1,0 +1,8 @@
+{
+  "block.woodenfurnace.woodfurnace": "Hölzernder Ofen",
+  "block.woodenfurnace.woodenfurnace:lever": "Hölzernder Hebel",
+  "block.woodenfurnace.woodenpiston": "Hölzernder Kolben",
+
+  "noplace": "Hier ist kein Platz für etwas brennendes",
+  "hurtWood": "Ein Splitter des Holzes ist in deinen Finger abgerutscht."
+}

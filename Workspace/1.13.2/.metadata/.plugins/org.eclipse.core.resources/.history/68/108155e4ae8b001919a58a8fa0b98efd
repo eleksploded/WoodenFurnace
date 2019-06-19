@@ -1,0 +1,37 @@
+package com.eleksploded.woodenfurnace;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import net.minecraftforge.common.ForgeConfigSpec;
+
+public class Config {
+	private static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
+    public static final General GENERAL = new General(BUILDER);
+
+    public static class General {
+        public final ForgeConfigSpec.ConfigValue<Boolean> Fire;
+        public final ForgeConfigSpec.ConfigValue<Boolean> BlockDamage;
+        public final ForgeConfigSpec.ConfigValue<Integer> Power;
+
+        public General(ForgeConfigSpec.Builder builder) {
+        	
+            builder.push("General");
+            BlockDamage = builder.comment("Enables/Disables Block Damage")
+            		.translation("config.damage")
+            		.define("damage", true);
+            Fire = builder
+                    .comment("Enables/Disables Fire")
+                    .translation("config.fire")
+                    .define("fire", true);
+            Power = builder
+            		.comment("Explotion Power")
+            		.translation("config.power")
+            		.defineInRange("power", 5, 1, 50);
+            
+            builder.pop();
+        }
+    }
+    
+    public static final ForgeConfigSpec spec = BUILDER.build();
+}

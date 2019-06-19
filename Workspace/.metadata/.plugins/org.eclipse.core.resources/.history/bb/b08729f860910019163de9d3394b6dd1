@@ -1,0 +1,43 @@
+package com.eleksploded.woodenfurnace;
+
+import com.eleksploded.woodenfurnace.Config.General.Explosion;
+
+import net.minecraftforge.common.ForgeConfigSpec;
+
+public class Config {
+	private static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
+	public static final General GENERAL = new General(BUILDER);
+	public static final Explosion EXPLOSION = new Explosion(BUILDER);
+
+	public static class General {
+		public final ForgeConfigSpec.ConfigValue<Boolean> Fire;
+		public final ForgeConfigSpec.ConfigValue<Boolean> BlockDamage;
+		public final ForgeConfigSpec.ConfigValue<Integer> Crafts;
+		public final ForgeConfigSpec.ConfigValue<Integer> Power;
+
+		public General(ForgeConfigSpec.Builder builder) {
+
+			builder.push("General");
+			Power = builder
+					.comment("Explosion Power")
+					.translation("config.power")
+					.defineInRange("power", 3, 1, 128);
+			
+			BlockDamage = builder.comment("Enables/Disables Block Damage")
+					.translation("config.damage")
+					.define("damage", true);
+			Fire = builder
+					.comment("Enables/Disables Fire")
+					.translation("config.fire")
+					.define("fire", true);
+			Crafts = builder
+					.comment("Number of Crafts Before Disaster")
+					.translation("config.crafts")
+					.defineInRange("crafts", 1, 1, Integer.MAX_VALUE);
+
+			builder.pop();
+		}
+	}
+
+	public static final ForgeConfigSpec spec = BUILDER.build();
+}

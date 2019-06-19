@@ -1,0 +1,62 @@
+package com.eleksploded.woodenfurnace;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import com.eleksploded.woodenfurnace.blocks.WoodenFurnaceBlock;
+import com.eleksploded.woodenfurnace.tile.TileWoodFurnace;
+
+import net.minecraft.block.Block;
+import net.minecraft.block.Block.Properties;
+import net.minecraft.block.material.Material;
+import net.minecraft.tileentity.TileEntityType;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModLoadingContext;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.config.ModConfig;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+
+// The value here should match an entry in the META-INF/mods.toml file
+@Mod(Reference.modid)
+public class WoodenFurnace
+{
+    private static final Logger LOGGER = LogManager.getLogger();
+    public static DamageSource damage = new DamageSource("Wooden Furnace");
+    
+    //Init
+    public static final Block woodFurnace = new WoodenFurnaceBlock(Properties.create(Material.WOOD)).setRegistryName(new ResourceLocation(Reference.modid, "woodfurnace"));
+    
+    public WoodenFurnace() {
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
+    	ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.spec);
+
+        MinecraftForge.EVENT_BUS.register(this);
+    }
+
+    private void setup(final FMLCommonSetupEvent event)
+    {
+    	
+    }
+
+    @Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)
+    public static class RegistryEvents {
+        @SubscribeEvent
+        public static void onBlocksRegistry(final RegistryEvent.Register<Block> registry) {
+        	LOGGER.info("BlockRegistry");
+            registry.getRegistry().register(woodFurnace);
+        }
+        
+        @SubscribeEvent
+    	public static void registerTileEntities(RegistryEvent.Register<TileEntityType<?>> evt)
+    	{
+        	evt.getRegistry().register(TileEntityType.Builder.create(TileWoodFurnace::new).build(null).setRegistryName(new ResourceLocation(Reference.modid, "woodenfurnace")));
+    	}
+    }
+    
+    
+}

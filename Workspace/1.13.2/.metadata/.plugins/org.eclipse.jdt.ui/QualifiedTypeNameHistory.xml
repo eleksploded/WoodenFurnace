@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="net.minecraft.block.BlockFurnace"/>
+<fullyQualifiedTypeName name="net.minecraft.util.DamageSource"/>
+<fullyQualifiedTypeName name="com.eleksploded.woodenfurnace.WoodenFurnace"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="net.minecraftforge.common.ForgeConfigSpec.ConfigValue"/>
+<fullyQualifiedTypeName name="com.eleksploded.woodenfurnace.Config"/>
+<fullyQualifiedTypeName name="com.eleksploded.woodenfurnace.Config.General"/>
+<fullyQualifiedTypeName name="com.eleksploded.woodenfurnace.blocks.WoodenFurnaceBlock"/>
+<fullyQualifiedTypeName name="net.minecraft.block.Block.Properties"/>
+<fullyQualifiedTypeName name="net.minecraft.block.material.Material"/>
+<fullyQualifiedTypeName name="com.eleksploded.woodenfurnace.tile.TileWoodFurnace"/>
+<fullyQualifiedTypeName name="net.minecraft.util.ResourceLocation"/>
+</qualifiedTypeNameHistroy>

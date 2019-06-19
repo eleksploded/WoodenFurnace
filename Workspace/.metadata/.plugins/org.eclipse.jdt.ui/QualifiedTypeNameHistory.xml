@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="com.eleksploded.woodenfurnace.Reference"/>
+<fullyQualifiedTypeName name="net.minecraftforge.event.RegistryEvent.Register"/>
+<fullyQualifiedTypeName name="net.minecraft.item.Item"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="com.eleksploded.woodenfurnace.Config.General.Explosion"/>
+<fullyQualifiedTypeName name="net.minecraftforge.common.ForgeConfigSpec.ConfigValue"/>
+<fullyQualifiedTypeName name="net.minecraft.entity.item.EntityItem"/>
+</qualifiedTypeNameHistroy>

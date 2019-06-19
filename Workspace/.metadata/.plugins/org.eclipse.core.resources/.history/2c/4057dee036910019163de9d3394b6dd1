@@ -1,0 +1,65 @@
+package com.eleksploded.woodenfurnace.blocks;
+
+import com.eleksploded.woodenfurnace.Reference;
+
+import net.minecraft.block.BlockFurnace;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.InventoryHelper;
+import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.tileentity.TileEntityFurnace;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockReader;
+import net.minecraft.world.World;
+
+public class WoodenFurnaceBlock extends BlockFurnace {
+
+	public WoodenFurnaceBlock(Properties builder) {
+		super(builder);
+		this.setRegistryName(Reference.modid, "woodenfurnace");
+	}
+
+
+	public TileEntity createNewTileEntity(IBlockReader worldIn) {
+		return new TileEntityFurnace();
+	}
+
+	public boolean onBlockActivated(IBlockState state, World worldIn, BlockPos pos, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {
+		if (worldIn.isRemote) {
+			return true;
+		} else {
+			TileEntity tileentity = worldIn.getTileEntity(pos);
+			if (tileentity instanceof TileEntityFurnace) {
+				player.displayGUIChest((TileEntityFurnace)tileentity);
+			}
+
+			return true;
+		}
+	}
+
+	public void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack) {
+		if (stack.hasDisplayName()) {
+			TileEntity tileentity = worldIn.getTileEntity(pos);
+			if (tileentity instanceof TileEntityFurnace) {
+				((TileEntityFurnace)tileentity).setCustomName(stack.getDisplayName());
+			}
+		}
+
+	}
+
+	public void onReplaced(IBlockState state, World worldIn, BlockPos pos, IBlockState newState, boolean isMoving) {
+		if (state.getBlock() != newState.getBlock()) {
+			TileEntity tileentity = worldIn.getTileEntity(pos);
+			if (tileentity instanceof TileEntityFurnace) {
+				InventoryHelper.dropInventoryItems(worldIn, pos, (TileEntityFurnace)tileentity);
+			}
+
+			super.onReplaced(state, worldIn, pos, newState, isMoving);
+		}
+	}
+
+}

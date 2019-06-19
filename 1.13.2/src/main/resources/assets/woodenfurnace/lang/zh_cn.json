@@ -1,0 +1,8 @@
+{
+  "block.woodenfurnace.woodfurnace": "木熔炉",
+  "block.woodenfurnace.woodenfurnace:lever": "木拉杆",
+  "block.woodenfurnace.woodenpiston": "木活塞",
+
+  "noplace": "这里没有地方可放熔炉",
+  "hurtWood": "一块木屑卡在了你的手指里"
+}

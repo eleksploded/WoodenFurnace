@@ -1,0 +1,8 @@
+{
+  "block.woodenfurnace.woodfurnace": "Wooden Furnace",
+  "block.woodenfurnace.woodenfurnace:lever": "Woodenlever",
+  "block.woodenfurnace.woodenpiston": "Woodenpiston",
+
+  "noplace": "There is no place for the Furnace",
+  "hurtWood": "A piece of wood got into your finger"
+}
